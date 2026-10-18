@@ -1,0 +1,22 @@
+# ---- Node / server ----
+node_modules/
+server/uploads/*
+!server/uploads/.gitkeep
+npm-debug.log*
+yarn-error.log*
+
+# ---- Env files (never commit secrets) ----
+.env
+.env.local
+.env.*.local
+
+# ---- Client build output ----
+client/dist/
+client/dist-ssr/
+
+# ---- Editor / OS ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log

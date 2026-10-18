@@ -1,0 +1,28 @@
+/**
+ * Client entry point: providers + router.
+ *
+ * Provider order matters: Toast (no deps) -> Auth (needs toast for errors is not
+ * required, but Notification needs Auth) -> Notification -> Router.
+ */
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import { ToastProvider } from './context/ToastContext';
+import { AuthProvider } from './context/AuthContext';
+import { NotificationProvider } from './context/NotificationContext';
+import './index.css';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <ToastProvider>
+        <AuthProvider>
+          <NotificationProvider>
+            <App />
+          </NotificationProvider>
+        </AuthProvider>
+      </ToastProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
+);
